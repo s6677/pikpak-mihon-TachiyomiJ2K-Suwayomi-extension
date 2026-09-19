@@ -36,11 +36,11 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Install PikPak Cloud source
+      - name: Install PikPak Cloud v0.10 source
         shell: bash
         run: |
           set -euo pipefail
-          echo "UEsDBBQAAAAIANQ0M107qtbhiQAAAKYAAAAKAAAAUkVBRE1FLnR4dCWNSwoCMRAF9znFO0EUdy7Fz0JRBhRd93QaJ5hJSz4O3t4M7l7xKKrzr45e2AatDu/aB8/IWhMLPku7NgdNOPtBIxa4EQ/+q6M/rk4Nr3WimazZtwM1SwJrjMIlowziE3SK6P6Fh/S7zR3ErDUWay6KkeKTZqVILGghTuLa9BQyKAn6Gl0QZ80PUEsDBBQAAAAIANQ0M10tpcwewwAAAFEBAAAkAAAAc3JjL2FsbC9waWtwYWtjbG91ZC9idWlsZC5ncmFkbGUua3RzfY89C8IwFEX3/IrQSZcnLoKCgxSdBVHnVxvaR9Ik5EMU6X83TYviYsaTc+9NqLPGBU4GGgptrEAKeproW4LGYa0EoCUojQ5Chys6TbphzKrYkPb8xXg6qAj9LAVh4iAeSfdk9Jz1jH0qJ19jJ/iWF0eSR5S8VCbWRb65CzekSlMPwjqz2892wr+PgdPusM+iouoy5ofyJawKlrk30d3EtP1/P9dgXilQqS+s0IuzUwNvQ7B+s1jUeAdL0qIEpNHs02/fUEsDBBQAAAAIANQ0M12uEcGYowEAAJ4BAAAzAAAAc3JjL2FsbC9waWtwYWtjbG91ZC9yZXMvbWlwbWFwLWhkcGkvaWNfbGF1bmNoZXIucG5nAZ4BYf6JUE5HDQoaCgAAAA1JSERSAAAAMAAAADAIBgAAAFcC+YcAAAFlSURBVHic7Zk9EoIwEIUXx8JTqQ230gpvRYOeyg6rjEzMz+5mH4QxXykheW9/EkCiRqOxazrJ4MttnlFCfJ6PjqWNNWhN4T45I4fcBFuK56yfNLC1eEdKR9RALeIdMT1BA7WJd4R0ZXugdn46HBX9afj97XrXzbXcmY5aQVxCwv1rWiNE4BJKideMCwEzIBWlNbH7JoYY0EZTc59JE5fUcClFGZgGe/HS+VQGEML9+bmIDaxVLtx14AcZvU7xa+d38tZpyB9yogyIo18gnrvmNucAUzwHnIFU9A3BGDAoHS74JvbxzRUaEmWA9dgrKR2DbNiWEEC86TZqRpW7EDf61TZxSJhxw4ZY7xwAiCdSZID7Aj71i3vGN9EoXYkH5o2s/0b/OmIi74DuQmjxRAED3O/yMVz0UeJ9fZAMrBF5RzTaNX7gDVVHNAOlpWRNTE+yhGoxkdKR7YGtTeTW3/2/lI3Gv/MBfgt3SM8dW6wAAAAASUVORK5CYIJQSwMEFAAAAAgA1DQzXa4RwZijAQAAngEAADUAAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL3Jlcy9taXBtYXAteHhoZHBpL2ljX2xhdW5jaGVyLnBuZwGeAWH+iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABZUlEQVR4nO2ZPRKCMBCFF8fCU6kNt9IKb0WDnsoOq4xMzM/uZh+EMV8pIXlvfxJAokajsWs6yeDLbZ5RQnyej46ljTVoTeE+OSOH3ARbiuesnzSwtXhHSkfUQC3iHTE9QQO1iXeEdGV7oHZ+OhwV/Wn4/e1618213JmOWkFcQsL9a1ojROASSonXjAsBMyAVpTWx+yaGGNBGU3OfSROX1HApRRmYBnvx0vlUBhDC/fm5iA2sVS7cdeAHGb1O8Wvnd/LWacgfcqIMiKNfIJ675jbnAFM8B5yBVPQNwRgwKB0u+Cb28c0VGhJlgPXYKykdg2zYlhBAvOk2akaVuxA3+tU2cUiYccOGWO8cAIgnUmSA+wI+9Yt7xjfRKF2JB+aNrP9G/zpiIu+A7kJo8UQBA9zv8jFc9FHifX2QDKwReUc02jV+4A1VRzQDpaVkTUxPsoRqMZHSke2BrU3k1t/9v5SNxr/zAX4Ld0jPHVusAAAAAElFTkSuQmCCUEsDBBQAAAAIANQ0M12uEcGYowEAAJ4BAAA2AAAAc3JjL2FsbC9waWtwYWtjbG91ZC9yZXMvbWlwbWFwLXh4eGhkcGkvaWNfbGF1bmNoZXIucG5nAZ4BYf6JUE5HDQoaCgAAAA1JSERSAAAAMAAAADAIBgAAAFcC+YcAAAFlSURBVHic7Zk9EoIwEIUXx8JTqQ230gpvRYOeyg6rjEzMz+5mH4QxXykheW9/EkCiRqOxazrJ4MttnlFCfJ6PjqWNNWhN4T45I4fcBFuK56yfNLC1eEdKR9RALeIdMT1BA7WJd4R0ZXugdn46HBX9afj97XrXzbXcmY5aQVxCwv1rWiNE4BJKideMCwEzIBWlNbH7JoYY0EZTc59JE5fUcClFGZgGe/HS+VQGEML9+bmIDaxVLtx14AcZvU7xa+d38tZpyB9yogyIo18gnrvmNucAUzwHnIFU9A3BGDAoHS74JvbxzRUaEmWA9dgrKR2DbNiWEEC86TZqRpW7EDf61TZxSJhxw4ZY7xwAiCdSZID7Aj71i3vGN9EoXYkH5o2s/0b/OmIi74DuQmjxRAED3O/yMVz0UeJ9fZAMrBF5RzTaNX7gDVVHNAOlpWRNTE+yhGoxkdKR7YGtTeTW3/2/lI3Gv/MBfgt3SM8dW6wAAAAASUVORK5CYIJQSwMEFAAAAAgA1DQzXa4RwZijAQAAngEAADQAAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL3Jlcy9taXBtYXAteGhkcGkvaWNfbGF1bmNoZXIucG5nAZ4BYf6JUE5HDQoaCgAAAA1JSERSAAAAMAAAADAIBgAAAFcC+YcAAAFlSURBVHic7Zk9EoIwEIUXx8JTqQ230gpvRYOeyg6rjEzMz+5mH4QxXykheW9/EkCiRqOxazrJ4MttnlFCfJ6PjqWNNWhN4T45I4fcBFuK56yfNLC1eEdKR9RALeIdMT1BA7WJd4R0ZXugdn46HBX9afj97XrXzbXcmY5aQVxCwv1rWiNE4BJKideMCwEzIBWlNbH7JoYY0EZTc59JE5fUcClFGZgGe/HS+VQGEML9+bmIDaxVLtx14AcZvU7xa+d38tZpyB9yogyIo18gnrvmNucAUzwHnIFU9A3BGDAoHS74JvbxzRUaEmWA9dgrKR2DbNiWEEC86TZqRpW7EDf61TZxSJhxw4ZY7xwAiCdSZID7Aj71i3vGN9EoXYkH5o2s/0b/OmIi74DuQmjxRAED3O/yMVz0UeJ9fZAMrBF5RzTaNX7gDVVHNAOlpWRNTE+yhGoxkdKR7YGtTeTW3/2/lI3Gv/MBfgt3SM8dW6wAAAAASUVORK5CYIJQSwMEFAAAAAgA1DQzXa4RwZijAQAAngEAADMAAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL3Jlcy9taXBtYXAtbWRwaS9pY19sYXVuY2hlci5wbmcBngFh/olQTkcNChoKAAAADUlIRFIAAAAwAAAAMAgGAAAAVwL5hwAAAWVJREFUeJztmT0SgjAQhRfHwlOpDbfSCm9Fg57KDquMTMzP7mYfhDFfKSF5b38SQKJGo7FrOsngy22eUUJ8no+OpY01aE3hPjkjh9wEW4rnrJ80sLV4R0pH1EAt4h0xPUEDtYl3hHRle6B2fjocFf1p+P3tetfNtdyZjlpBXELC/WtaI0TgEkqJ14wLATMgFaU1sfsmhhjQRlNzn0kTl9RwKUUZmAZ78dL5VAYQwv35uYgNrFUu3HXgBxm9TvFr53fy1mnIH3KiDIijXyCeu+Y25wBTPAecgVT0DcEYMCgdLvgm9vHNFRoSZYD12CspHYNs2JYQQLzpNmpGlbsQN/rVNnFImHHDhljvHACIJ1JkgPsCPvWLe8Y30ShdiQfmjaz/Rv86YiLvgO5CaPFEAQPc7/IxXPRR4n19kAysEXlHNNo1fuANVUc0A6WlZE1MT7KEajGR0pHtga1N5Nbf/b+Ujca/8wF+C3dIzx1brAAAAABJRU5ErkJgglBLAwQUAAAACADUNDNdU6BoKCkXAABqUgAAVAAAAHNyYy9hbGwvcGlrcGFrY2xvdWQvc3JjL2V1L2thbmFkZS90YWNoaXlvbWkvZXh0ZW5zaW9uL2FsbC9waWtwYWtjbG91ZC9QaWtQYWtDbG91ZC5rdLU8/XPcxnW/669YY9QIV51wkt02GVYUzY9TREv8KEnJiq0MB3fY48HEARcAJ4qSNeN6YseOP1PHbWo7HTdjd9K6kdyZdKLYtPPHlEfKP/lfyHv7AewuFkfKVZiJSWDfvn379n3vg4Z+d9vfooSOvG0/9gPq5X63H+4mg9Cjt3IaZ2ESe34UecNwe+hvd6NkFJw4EQ6GSZoTPw7SJAy8HEC9xXg4yjd2h9QYveUNU9qjKY271GsHYb4B0KvFq0nQJdR6N6U0lrA2arNklMKU+STuhVuj1O9EdJ29OsakQRLQyLsYRjlNr4RZfuwpS3685WerwMFjT3kk4PX5vj8Eoo4/gVH0iOBXh4GfF0RtUwAcZf3Q8+M4yf0cJUBnZQkisF2mYR3EKA+jzNuiypFnV/zbu1XI2+HQS6kfPBcO23Ge1kDA/xfClHbzRIFI8iiMb3ndJE1gvZhmXjqK56Kkux3GWxOgst246y2NQH6PAtoJ8/4VwCfhku1+ng+f8uZTGtA4D/0oM4cuwV5oWn0N/72aRjWvQYAHQz9GnudJDegSDUIfNU0DLt6upMujqDJpZRuxzUchUGuOraZJnnSTypw1+pMRzSrg4vVcEuxqFCjvq1OyYRJntO69BVc5UE4KE68z6vVKhXjBv+l78HZxpX2rS4coq+bQep6CEKyxw9DGYpp7V9euLNBuUhmCed2+n2YAsp6DafLTYJ4/ZxogSrc352f07/6m+h7kxY+o+v6Wd2sAphQRpZm3kHRHAziOuVEYAQUXfU2ok3TL23mq6wXJwGtHdKCeGwwhogwQMrMrlO/E0+IPv5PlKaAj3cjPMrIabq/62/Nou8kUKZTVbTRJ1V6SOydOEPgZpuFNMAvkph+R0iZnpLNLqtrsNqqTYI83aTobBCnNsinCz4FB4Q/gcBtkmsRJOvCj8DZdZ+CushRaDT7LXV1rX9xcb69da681yUL74uzVKxviueElaXswzIEGCxEjoCL2B7R2/QnrXYUFlmeX2k3iOI0ZD0YGrrKahU3A7J0kDb7LYquz6+vPrqwtsMUmLZImSb7q5/2jOVrYyUlMXVtZ2ShZik+TGZr6O9yIoCBEcPQgL5IC1cZ4QqphC0T58XpJFCU7a2CskLjMzdMRtYKsZ9FEqA7iF9jvcjpbLTIPjo6SJI52yXOLq6QLlKR+dCaQrCADmvvg7nzSIji2S1Jupj2JYSnsJ3HrmScvkwyUOCLJTpzByUKQBFyMEj8A1mG0QsIBvuyiZ423iukb/TBDyJuAPSPwC5Zg7M+BsIAj6qXJANY9g0sjthxIzkBI4d0gAT4j5QXFXuUI/BSWvEkX44DeYs4LDp39Ftyog+W8mSZXwnibBpf8rL/kD89zYWiSWQXygrs0e31zdm3+0uK19ub87PwlUIKz3vf/ttck/CjYQgnsLg0Doe6jIRonMAc5OAFYpgc+kRqAvVFslRLwt9wOUf7ebUxZ4QCtHwSLMcREaO6TlNwhYKjDmJy5UIgHE1PuiwCeDXviWZHGsEdc8dYbgePtJwD+xDRZnf1he3N1beX6jzYvraxvkBdfJCoYKBG4iwA10IBend241FC0AX9Smo/S+GmDZk7SME26lAaSiJIyIc1yK+II2YrTGi3wV7q76qcgOoDcdQSko2vKjBeBZZiaCpij20i2aWwATIEEpskOUbyo6xzufTH+/BdydTJ+5+WD9z9XUCNpTIOWUXInE8bgHitZXHcLojSqOrsggUhRGQMax4JQIQo6QIE9VEXfVdjdqEzixgJmsdkeMwE8tMieL5jxY21a/VZQzcevvnLw+tf7D94av/b5+MOvD1//2bd7H5wsUBk848u7VlGREVOd4ZUaUBE3NjoUIaArY0Hv0sbG6ua5zXMGIB6W++TZs8brAfh44IXrrFw2aPb6nGgHQg1IKPMzGKM6TbIFVGRF0OoWW26Ydh4iQJcdqREWurUYqtEwuLKj3UdhpbJRNqRg4dFaYayTDEeRn7JcyUUDPkVAm8FClemfIl9oV5iVv0DONYQBUCBdiq4Vs0wMv5iNLCmrQqPDEeKZQfAx8IegMkJENxIGqKM5Yi/cOvOML6vbzLR116bRNzCvUySLgbPdFbibhJkDGa8AtSzRhpCwzLgfJzM1WxCDhY2oHmcinS6jSbdmYU4HaDd0nhuxCSMZvA5H7IXZXOTH2xB4gZ8w1+hG1I8Fpo0wj6gb5l7MZBwdXg5eIHM5ogYcnK5QtpM+MUFSGPWPIgps7twuJJgu2OwpIrJNOApeFphBrmEmWY+FRTVKDcEt6BvgS4mpWbzu8noGnD0e2nlZ37hQQjCUCxCkhRFAzSUJ8tAYni+waOMF5ZwYRYxYJsBeBgwADThIlrpWg5Msnlz20CAUmMkHbLgkHSo6+a4h98qkU0UneWCepUq7q1LbNNc7ntUCoWBri/WAOWJ+Q3AfIS4YXIJIFXbDfbIAX6M9iQOdu64zanxpcaaAztMcqjYZNRuZpyLxCjOe6QrhZ+vouWLMW206CdoSZosDZqjsKgt5NyBHOkBZIFPCmKWH2Qa6dEP9MghlafBsCDHXHQIn0IEAk8Q+HJQfsTpFSl3fy0aYaINRm+3hSfvA7VOtU2CKOnVDFT3PE26+KqrNmINmgLEFUoc7POhoKlGXEvRKnrKQBNQY2CpLSvaAgG8TMoIBeG2sxmSOBQCjYtcIiS1gEOAiX9fpFtYpXCMq9jCvAQkAdoe3XKflNOwo/qEmnsUtF0FiRaaOh4uHoDqmupiD4VADBOPERP6snBn+cCvMj0g5BfmnGrTx/1ZTI2mV0SZrFrQhvScg3KGdBf8mgnA1FQqHasrmMCVtVMg0FxLajXhsFqJ2uRqroB1JZXGZkuLaVTur7pLb5zuGnWCpz4TtauCg8DTmSQnOrFNFL+wx3w2KxRHl6KLVkFpoIh/1h8No18gj+AzIMSuOXtKgy0+WgwUp3IUAKUMBZ3zvzcMv33NEko0hRQ3Q/74rgcyME384E735laXVK+2N9oIGcJd7odpZV5cvL688u6zP0Z4CmnXTkCUxsBWHVxfJsyAns9fI/he/OPzsPpYwWvNzz5GDvc8Of/nl/7308viVvfG9P5JZfs1D9h+8TdZHOz7eSbSeubb07d6HmA7tP/jd+JN7hx/eG3/1/v7eB+OPfgsJ0vh3v4L3h3vvwR/f7r3J06RvXvrg4Z9+RjBLIWtAOCUHb77+zUcvPbz/5fidfwYwyKm++c1Px6+8tv/gjYdffXXw/u/3H/zX+O03Dvf+c/zmK0CRY1dIKaqqO624ckVi9UDGkFw9dz+uAB/hVOsdKvdlj8GlgttBf5OD5R5GPoyfunHjVJOg2pgO7FjedznJOT7QgDTP0K+6zubm0uz8yvp18Aco6jBaCnnLW1jfXM+TFFJge2hcenNjxQAOJIy7ubmn47j0TpP4x3fRgt1WJy3CCouHBvqAp7JswuGOYaMckOCDj/7bMaiTkud1U4qBY8NqqPBnxNwR93+KEVekSVJddXrCnCqkV0CEjmzGo0GHlUjoLXYHIZZaZq9dBUMDyyKu5GEGaRM5w7mH/uMiZGHmEd49vsZO0Bnp20B3VRBDc7fpbqlGrHJ6me7ai0N4QdhPkxh2ELiq4rFppoGuADwPS5Ulo7usLgbnLWQszC0eqVIBLu4njcUejbRjkGch8elibZ1WyUmBkUdDZTRRFy9Upo/yvrhKRQn0b4oHC2hZ5Z8u7ym0G2O3JKapYm5UyS6NJmAbjHK8IUM7sNITJfMLFgrUgiBG4EaNXUqo20DbM7ebgzNI/d0LZihZFv+RihDygF6StuE0gOm88mnYlQrRTNPhb1ZuqIAqezs9XT5V4DBMEWZdDZYtYsOg7dVQIMUOjz/lMalX/9oxMUz6aYlbYDB2OKvgoyVax5+7lbd3DbNSWxzWbEjJtaa218ZfROVkkbkCvtOHmJBUUXMTeoFUrm7qzosJDFjfLL+sGjsFo5S+EAy4D/IIDI/BrMMvoNCKs4qD535usVD1jMzTUJ90FljNPpr7CXZaMfdFTsNyO/FU8gYcJyinq91bN8zRUy+eqryTl8zHApaXxF4fjMM8VtMbx5pXcT0WNuiVSxGbgr1dzOlADU3xDgBMjNK8oqiO8DERzIWprrxvNqKpo8oxRcQXZoX1tYeOCJYJqosC6Xerx+BULL5YURRh3GQZErVWVk+dIoJ5ZWY6LfOk2nhLjbOUWB/xeUONkfXpIwPWRUrLHYvxicljHVR99libOVqzxpqMsVZLpUgV7k3RzTpRZUV8WVcPQJTsHQ4FSj2TSsuWJExVHUej//zMrUFEQNmxy3HaOeeddfi5AUnTzijvnfmBQ2Z0T3s+mBqmybAHhonA7DibCqYdSHynHNMjC8iqo4YBEQazsLplhQDjw9px8t1hHQjEuF1+pxbReAs0owJ2vmWjQb7FPZQjwBzW4oKmGy/g9YYu10ExD7usHbAFG/97IhqkpjmfrHduJ2yHAQchENddVYIGuWWgqJ2+eY3XF8GgGhfW3D8u0GHeB8F3zpk3lAOa95PAdVbXVlYvLi4vAJAiODUXh6W9LEKYmO7M+7BxecXqQUrYHTEjMULlAaz8+tIM31Cln5CDYDHXR90uOJ/eKLL5bstVsii+PPzTvx28/en4k/95+PtPv937gBVHTt4pEKNFuuuYOVUl+GH9aQGrnsEfcArXB7gngQTvY71MROvm9bSoXON8zIrBCaAk4M79HXvMmsrcEiA8JTsU7VbWkJSZtOLmrS68UfD2sWZcpNhzFKJp6p6agfwaV2mjx8VkuyYJPyJgUdbiBZ5VbPQAFarW/+o2IBIphWPlxZt5OmjURT1Jt4unORWneWcL7FrxvA3itBxuwg0bKEmSaDWO4B2Jtog2eny6hV13uX+WSzWJSaUumUUlZ26XhxKsDnxEEQD9jCq3YKpML7Pm79Q4mp4v00d7byZq+GIMnpiFPdZKS5ixDGHod+nsDkQlgAs9rUG0XDAQy7B2qWIJY3FYie3IVXo9XbWtFTepNjhwY8v1lSXNAh/2/olW0mxud8PfQlKX113nr9EsyhlOBdEoylkuBCmWycDCLmQed0KKYQQtI/xCBMJ4cpaMINRUCJMTLL05hZ2cVsBRbDi6BvGzGSJ2glUkdINhPKIVRH1+n9kL00zuHD8/KKiGbSOIY6slaFW6CQgUX27BI/04+kVlO0ceReH8nQbf+Vlt19WMVQmzp7VVK9o4M3nxbhJFgAj8iuVCcEacmnWAR/yQgp61mEg4JqUjUP4I6ToNMUEhVG5lrjhG/NWsDOonpTxVQXUmKU86qLW/Sjg3TnCd5anICa9ST8lja0KK1vWjZaUjucxLzaA3YMrLMUw8sgKn3t3IMIjzQkt+tuigUXyAeMNhhaDNsC96RL+W0otcs2nd6wHtI8vmposVy557j8/kU4qrBuc0SuFfPTnnNJrE7L73rm5c3PwBS2oq7cmMFiUOnCKybvhoma+YVRed+gGEirMjCBnT8DaLh4FeBaHX8bOwWxQFmkVbuBmYckRdDOLOtEXagVsPGabcbJi0taypW7dtzWilkjTpbUtFRaI2pLJEnA/v/2H8ymsHr7833ntJfGBA+BcGB7/+9OCLdx/e+/rwq3t4Xffvn41f/Vd5PXj4y98evPaH8btvjf/pzfH9Vw8//kdH1baarZXJwFCv6IgWB0N1OkWzsFbLKb+oYXWsner56smmvD9mkSgLBA31koDAOIh/aningIFlCsW9Tln6yPlsoWMQ9ZSlXrEPs7sCm1fMKEgSxQimccCv2HiUVoPGcao3WhJ0UnckHgio4mhofp7nZuzXFDEHGsb58FMpoYDR1Q8DBTZWuoABe7TFb2mUr0N0sRX1FZkejT/6fPzrl/T4NxsNBj5zB843X/7q4b1PIG9i3TBTrRYYE/Hdo+eHrW/3Pnz4xqf7D77kaCDX2n/w1v6Dn6OMv3MfxNyYOdgVc7vJoGUsSvMF2vPBkVxD0+caX7TY3I/6Mctj5pz8zmUi7wrFrWWfUHS9HWB87zcw7fCz+3XzDU44Tu3upZl6zLuXH95Mlhxuqr7b1q2TJ+ybEZDarnBh1ko8BzGw3DaG4zRmhoSKV7Y0G3/kuBfKD3WB8uKjXW/jR6vtzfkrwIzNjfb1DQKxuzGIrzevza4tzm4srizb+caPTXsiXT8Ha+ZuTpE1zAAGtPAitsy91Sr6QrCBPys6RspvmEiWQ6JOkph9OPPMtSXPqGiUf+mZDFayH6/w4PdSdsHhjS8HH/+RN7PUis7+12+M/+NlMB0tPuOYloJ9qGXbqNgA2nplV4bBbUwGr9qZIyZUVfOICfpR1IY05seBNbGl6l1S3YHz0NKoJVW8d+G6tbm6VdZmP6F6daWlBe0/mP+iCP+975FJoJkCWx83oJhI6JPla7N/CX+KaL5YUivnnMYy0JHMLqvqx+A3eHN4ORxWuG1pHVIiKYNg5KnEo55HWbVqnZTj9Tsor5FiPcESbeIG4VGyw4JEFhGzh66fUZd/tuvpGiYvxRCqjK8cbC7g3UuVkW7ntlMr2PUNg7brSjlWUFPwVt7zgmluL6+jWV5r/7B9nX1EWkIL8Z+kXux7hbrUjZ9rie8IXhnB7RWaw9NKuhBuhfiFqvXgeI9BzbFNk50+jUXZ1Fak9U7xz2bthKma5bwwZDnWC0PKfg95ygUJxhB/b4U9/OXf5L9fuBU5eNGoVfCYPMJLXs2oOWCl17zuVPXd8KK0rDnzA6xgtbZUGfhZ4xR+u7F8dWmuvcYFQj2bOJiNIqM47UWwsLy2Kd7OePrBz8i+rAKyKlLGlWz51U9HoXExzs1GSbxZXZ7duLo2e2VzY+VyW0hyQa9fd7hlryIjFhIo7aJXLtDpHLFA5/+5QDcZsTruIIxXeq7vs3YM2HaH/VEpi6olUTbVVgeNaA9R+v7z4Y8rg2m41cfRTsc2ilOXZSsePiDVSbxVOWQNXTGDPR01pctOOcxYHzCacGXRJ/jHQ+gBVczitS3yKyd7HDHdSFxlrnE7UNfGzPZqIKhrI8QfpFvZyBNqnax8P6EiKI5aWbM4c2WCpsZmb8Cwpk/F4Rnk1Mk76mcLrIngrlNXiFPwQoQ1yXuLa8eeFpeIJR0wm5ayz8G/fHzw/muHH/yUR6vjvfchsXMqflL5qJd9r6F/AFIuMZlD9i5V5UNC1js6qdYolpIfOOh8VDtq7hpjohG2nssKbTqXy4HjcVrSdhTDDz/7+OHPX64wnNk23t5Qx+hyBT1uw2oU2g+80GX3KmC3Tk2d0uNkDnUeleIRqDPlQeGWpny2/nh+APyaWXpH92yT09to6KV60WY9cS7fwmlyTp18hOhxREfWsvk//YLF+atpxGq47LoOO2KTEbj/IGDX5J5EKrpcRZyclJ2L9jq3tcJNH4E+sZ5Gpii+A1Vq+b221m4hwfjwui7A+csEbRh6Oaz9ssWeFV2PtVF8LAdZhKeMsudyGAM/ZRQfy0EWDiqj7FmhTkSJkip4rASLWvtM0s1pfgYYQv2BNZnh/2yP1nyqqW7ZiSq/P+EdyU0NSu1Rxe+rj+5DFt/R2oixXc9htt1XrB9rsWpqw8p13AQo5SZOjfpZhD2BJgtBEVGlUeeH6mUNTlnWn7CuzZoZX/vY19EdlrZCV/7jVyTpvACkKOJfLJ7EWc7wKAVv5CbIcuDf3ORVHueoebLcq8yUBZ8j58qinzJX1n6OnItqjfPYR0+bWAGaNEUvvqglEL0qfxwccuWyxDaJVuPff4F55578vncW/ndu4h71b17ZepzMM/gp76SplY5tmPxUlUYErUn4WU/dFpgJx50JGzdueO7tcPhit3O7cVLx+ioiNTtUZt+4EZx2Z6YAA/7VmGnUTa9mUiUWnPrijRsLp4sCyN0TfwZQSwECFAMUAAAACADUNDNdO6rW4YkAAACmAAAACgAAAAAAAAAAAAAApIEAAAAAUkVBRE1FLnR4dFBLAQIUAxQAAAAIANQ0M10tpcwewwAAAFEBAAAkAAAAAAAAAAAAAACkgbEAAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL2J1aWxkLmdyYWRsZS5rdHNQSwECFAMUAAAACADUNDNdrhHBmKMBAACeAQAAMwAAAAAAAAAAAAAApIG2AQAAc3JjL2FsbC9waWtwYWtjbG91ZC9yZXMvbWlwbWFwLWhkcGkvaWNfbGF1bmNoZXIucG5nUEsBAhQDFAAAAAgA1DQzXa4RwZijAQAAngEAADUAAAAAAAAAAAAAAKSBqgMAAHNyYy9hbGwvcGlrcGFrY2xvdWQvcmVzL21pcG1hcC14eGhkcGkvaWNfbGF1bmNoZXIucG5nUEsBAhQDFAAAAAgA1DQzXa4RwZijAQAAngEAADYAAAAAAAAAAAAAAKSBoAUAAHNyYy9hbGwvcGlrcGFrY2xvdWQvcmVzL21pcG1hcC14eHhoZHBpL2ljX2xhdW5jaGVyLnBuZ1BLAQIUAxQAAAAIANQ0M12uEcGYowEAAJ4BAAA0AAAAAAAAAAAAAACkgZcHAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL3Jlcy9taXBtYXAteGhkcGkvaWNfbGF1bmNoZXIucG5nUEsBAhQDFAAAAAgA1DQzXa4RwZijAQAAngEAADMAAAAAAAAAAAAAAKSBjAkAAHNyYy9hbGwvcGlrcGFrY2xvdWQvcmVzL21pcG1hcC1tZHBpL2ljX2xhdW5jaGVyLnBuZ1BLAQIUAxQAAAAIANQ0M11ToGgoKRcAAGpSAABUAAAAAAAAAAAAAACkgYALAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL3NyYy9ldS9rYW5hZGUvdGFjaGl5b21pL2V4dGVuc2lvbi9hbGwvcGlrcGFrY2xvdWQvUGlrUGFrQ2xvdWQua3RQSwUGAAAAAAgACAD3AgAAGyMAAAAA" | base64 -d > /tmp/pikpak-source.zip
+          echo "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Kewnh9TOO7AeR7TjkSP/eS88Qz0ZeeyojVVV4MWFoAvm33FYNZMlkYrLCMJPDrIC8/LjyNKDSPoQ9InxNDLFGSlQpZ6SVh6JlpCQ+3GNKgfnn+O0oetlsCr5YfasyLqvteJj1sg8PKWVPWfN6PgprfiYNTJ3UGllzwp1wkuUVMFjwVnUqhyDZkKTA7Ag1O6UBjP8p9m0OwKa6GYXBuQ1QX5xZEiDUq8S4G9o7HxdRPxWQhkxZVUUGG23Fe3H8ldDWrNSNTEASimYUL1+5mEPoKmEII+o3Kivh2plcytVMv6Accu0We5SZvk4usHSRmjKHzgkQeMFIEVh/3TwwI8Thkc5Q8TVBF527LNLPMtj7NRPHg4pPbuFc5+KvjLxq/QNC0cIFX1RrLEfy5otYQZoUBc9+aKmQPQjut3gkCPLbKCxZxCtud/4gn6HnviVdRD+OzRwjvrvGrDxOJkH8HxhUNfCxRro/GSRRgStCPhZ6fMyqAnDHHNrZ85Y5jk3fLHZOFfbq1h9FZEaHSq9z5xx9ptjI4AB/6qN1aq6FyOpDAt2ffHMman9aQJkY8//A1BLAQIUAxQAAAAIAI04M11+GexfxQAAAFIBAAAkAAAAAAAAAAAAAACkgQAAAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL2J1aWxkLmdyYWRsZS5rdHNQSwECFAMUAAAACACNODNdrhHBmKMBAACeAQAAMwAAAAAAAAAAAAAApIEHAQAAc3JjL2FsbC9waWtwYWtjbG91ZC9yZXMvbWlwbWFwLWhkcGkvaWNfbGF1bmNoZXIucG5nUEsBAhQDFAAAAAgAjTgzXa4RwZijAQAAngEAADUAAAAAAAAAAAAAAKSB+wIAAHNyYy9hbGwvcGlrcGFrY2xvdWQvcmVzL21pcG1hcC14eGhkcGkvaWNfbGF1bmNoZXIucG5nUEsBAhQDFAAAAAgAjTgzXa4RwZijAQAAngEAADYAAAAAAAAAAAAAAKSB8QQAAHNyYy9hbGwvcGlrcGFrY2xvdWQvcmVzL21pcG1hcC14eHhoZHBpL2ljX2xhdW5jaGVyLnBuZ1BLAQIUAxQAAAAIAI04M12uEcGYowEAAJ4BAAA0AAAAAAAAAAAAAACkgegGAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL3Jlcy9taXBtYXAteGhkcGkvaWNfbGF1bmNoZXIucG5nUEsBAhQDFAAAAAgAjTgzXa4RwZijAQAAngEAADMAAAAAAAAAAAAAAKSB3QgAAHNyYy9hbGwvcGlrcGFrY2xvdWQvcmVzL21pcG1hcC1tZHBpL2ljX2xhdW5jaGVyLnBuZ1BLAQIUAxQAAAAIAI04M12csJl3kxkAAE5YAABUAAAAAAAAAAAAAACkgdEKAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL3NyYy9ldS9rYW5hZGUvdGFjaGl5b21pL2V4dGVuc2lvbi9hbGwvcGlrcGFrY2xvdWQvUGlrUGFrQ2xvdWQua3RQSwUGAAAAAAcABwC/AgAA1iQAAAAA" | base64 -d > /tmp/pikpak-source.zip
           rm -rf /tmp/pikpak-source
           mkdir -p /tmp/pikpak-source
           unzip -q /tmp/pikpak-source.zip -d /tmp/pikpak-source
@@ -65,12 +65,27 @@ jobs:
           rm -rf src/all/pikpakcloud
           cp -R keiyoushi/src/all/pikpakcloud src/all/pikpakcloud
 
-      - name: Build APK and Suwayomi JAR
+      - name: Create throwaway release signing key
         working-directory: keiyoushi
         shell: bash
         run: |
+          set -euo pipefail
+          keytool -genkeypair             -alias pikpakcloud             -keyalg RSA             -keysize 2048             -validity 3650             -keystore signingkey.jks             -storepass pikpakcloud             -keypass pikpakcloud             -dname "CN=PikPak Cloud Extension, O=Community, C=KR"
+
+          FINGERPRINT="$(keytool -list -v             -keystore signingkey.jks             -storepass pikpakcloud             -alias pikpakcloud             -keypass pikpakcloud             | grep "SHA256:" | head -1 | awk '{print $2}' | tr -d ':' | tr '[:upper:]' '[:lower:]')"
+
+          echo "SIGNING_FINGERPRINT=$FINGERPRINT" >> "$GITHUB_ENV"
+
+      - name: Build release APK and Suwayomi JAR
+        working-directory: keiyoushi
+        shell: bash
+        env:
+          ALIAS: pikpakcloud
+          KEY_STORE_PASSWORD: pikpakcloud
+          KEY_PASSWORD: pikpakcloud
+        run: |
           set +e
-          ./gradlew src:all:pikpakcloud:assembleDebug --stacktrace 2>&1 | tee /tmp/pikpak-build.log
+          ./gradlew src:all:pikpakcloud:assembleRelease --stacktrace 2>&1 | tee /tmp/pikpak-build.log
           status=${PIPESTATUS[0]}
           if [ "$status" -ne 0 ]; then
             echo
@@ -85,8 +100,8 @@ jobs:
         run: |
           set -euo pipefail
 
-          APK="$(find keiyoushi/src/all/pikpakcloud/build/outputs/apk -type f -name '*.apk' -print -quit)"
-          JAR="$(find keiyoushi/src/all/pikpakcloud/build/outputs/jar -type f -name '*.jar' -print -quit)"
+          APK="$(find keiyoushi/src/all/pikpakcloud/build/outputs/apk/release -type f -name '*.apk' -print -quit)"
+          JAR="$(find keiyoushi/src/all/pikpakcloud/build/outputs/jar/release -type f -name '*.jar' -print -quit)"
           INFO="keiyoushi/src/all/pikpakcloud/build/keiyoushi-source-info.json"
 
           echo "APK: $APK"
@@ -103,6 +118,8 @@ jobs:
           cp "$JAR" jar/PikPak-Cloud.jar
           cp src/all/pikpakcloud/res/mipmap-xhdpi/ic_launcher.png icon/pikpakcloud.png
           cp "$INFO" /tmp/keiyoushi-source-info.json
+
+          ls -lh apk/PikPak-Cloud.apk jar/PikPak-Cloud.jar
 
       - name: Generate Extension Store files
         shell: bash
@@ -183,6 +200,7 @@ jobs:
           from google.protobuf import json_format
 
           repo = os.environ["REPO_SLUG"]
+          fingerprint = os.environ["SIGNING_FINGERPRINT"].strip().lower()
           info = json.loads(Path("/tmp/keiyoushi-source-info.json").read_text(encoding="utf-8"))
           base = f"https://raw.githubusercontent.com/{repo}/main"
 
@@ -224,7 +242,7 @@ jobs:
           index = index_pb2.Index(
               name="PikPak Cloud",
               badgeLabel="PIKPAK",
-              signingKey="",
+              signingKey=fingerprint,
               contact=index_pb2.Contact(
                   website=f"https://github.com/{repo}",
               ),
@@ -254,7 +272,7 @@ jobs:
           )
           PY
 
-      - name: Write README
+      - name: Write bilingual README
         shell: bash
         env:
           REPO_SLUG: ${{ github.repository }}
@@ -262,49 +280,90 @@ jobs:
           cat > README.md <<EOF
           # PikPak Cloud for Mihon / TachiyomiJ2K / Suwayomi
 
-          Use your own PikPak WebDAV storage as a private manga source.
+          把你自己的 PikPak 云盘变成 Mihon / TachiyomiJ2K / Suwayomi 的私人漫画源。  
+          Turn your own PikPak storage into a private manga source for Mihon, TachiyomiJ2K, and Suwayomi.
 
-          This project does not provide manga or shared PikPak accounts.
-          Every user uses their own PikPak WebDAV credentials.
+          **本项目不提供漫画、不共享 PikPak 账号，也不包含任何用户凭证。**  
+          **This project does not provide manga, shared PikPak accounts, or user credentials.**
 
-          ## Extension Store URL
+          ## 扩展仓库地址 / Extension Store URL
 
           \`\`\`
           https://raw.githubusercontent.com/$REPO_SLUG/main/index.pb
           \`\`\`
 
-          Add this URL to Mihon / TachiyomiJ2K / compatible Suwayomi Extension Stores.
+          Android: add this URL to Mihon / TachiyomiJ2K Extension Stores.  
+          PC: add the same URL to a compatible Suwayomi Extension Store.
 
-          ## Features
+          ## 使用前准备 / Before use
 
-          - PikPak WebDAV
-          - Remote ZIP / CBZ
-          - HTTP Range page reading
-          - No need to download the entire archive before reading
-          - Android APK for Mihon / TachiyomiJ2K
-          - JAR for Suwayomi
+          1. 打开 PikPak，进入 **设置 → 访问与集成 → WebDAV**。  
+             In PikPak, open **Settings → Access & Integrations → WebDAV**.
+          2. 启用 WebDAV，并创建一组 WebDAV 凭证。  
+             Enable WebDAV and create WebDAV credentials.
+          3. PikPak 会显示服务器地址、WebDAV 用户名和 WebDAV 密码。请不要把这些凭证分享给别人。  
+             PikPak will show the server URL, WebDAV username, and WebDAV password. Keep them private.
+          4. 在 PikPak Cloud 来源设置里填入这些信息，再填写漫画根目录。  
+             Enter those values in PikPak Cloud source settings, then set your manga root folder.
 
-          ## Defaults
+          PikPak 官方目前说明 WebDAV 面向 Premium 用户。  
+          PikPak currently documents WebDAV as a Premium feature.
 
-          WebDAV URL: \`https://dav.pikpak.ai/\`
+          ## 四个设置项 / The four settings
 
-          Manga root: \`/漫画/\`
+          **WebDAV 地址 / WebDAV URL**  
+          通常保持默认 \`https://dav.pikpak.ai/\`。  
+          Usually keep the default \`https://dav.pikpak.ai/\`.
 
-          ## Updating
+          **WebDAV 用户名 / WebDAV Username**  
+          填 PikPak WebDAV 页面显示的用户名，不是登录邮箱或手机号。  
+          Use the username shown on the PikPak WebDAV page, not your login email or phone number.
 
-          This repository intentionally does not maintain stable APK signing for seamless Android updates.
-          If a future build cannot replace the old extension, uninstall the old extension and install the new one.
+          **WebDAV 密码 / WebDAV Password**  
+          填 WebDAV 页面生成的密码，不是 PikPak 账号登录密码。  
+          Use the WebDAV-generated password, not your PikPak account password.
 
-          ## Privacy
+          **漫画根目录 / Manga Root Folder**  
+          这是 PikPak 里存放漫画 ZIP/CBZ 的文件夹路径，例如 \`/漫画/\`。  
+          This is the PikPak folder containing your manga ZIP/CBZ files, for example \`/漫画/\`.
 
-          Do not share your PikPak WebDAV username or password.
-          Credentials are entered by each user in their own extension settings.
+          插件只列出这个目录第一层的 ZIP/CBZ，每个压缩包作为一本漫画。填 \`/\` 可以扫描 PikPak 根目录第一层。  
+          The extension lists ZIP/CBZ files directly inside this folder. Each archive becomes one manga. Use \`/\` to scan the first level of the PikPak root.
+
+          ## 压缩包结构 / Archive structure
+
+          Example:
+
+          \`\`\`
+          /漫画/
+            火之鸟.zip
+              火之鸟/
+                Vol.01/
+                  001.jpg
+                  002.jpg
+                Vol.02/
+                  001.jpg
+          \`\`\`
+
+          ZIP/CBZ pages are read remotely with HTTP Range access. The whole archive does not need to be downloaded before reading.
+
+          ## 更新 / Updating
+
+          为了保持这个项目简单，本仓库不维护固定 APK 签名。以后如果新版不能覆盖旧版，请卸载旧扩展后重新安装。  
+          To keep the project simple, this repository does not maintain a permanent APK signing key. If a future build cannot replace an old one, uninstall the old extension and install the new build.
+
+          ## Privacy / 隐私
+
+          WebDAV credentials stay in each user's own extension settings. Never publish or share them.
 
           ## Disclaimer
 
-          Independent community project. Not affiliated with PikPak, Mihon, TachiyomiJ2K,
-          Suwayomi, or Keiyoushi.
+          Independent community project. Not affiliated with PikPak, Mihon, TachiyomiJ2K, Suwayomi, or Keiyoushi.
           EOF
+
+      - name: Remove throwaway signing key
+        if: always()
+        run: rm -f keiyoushi/signingkey.jks
 
       - name: Commit generated files
         shell: bash
@@ -320,5 +379,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Publish PikPak Cloud"
+          git commit -m "Publish PikPak Cloud v0.10"
           git push
