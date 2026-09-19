@@ -21,15 +21,68 @@ PC: add the same URL to a compatible Suwayomi Extension Store.
    In PikPak, open **Settings → Access & Integrations → WebDAV**.
 2. 启用 WebDAV，并创建一组 WebDAV 凭证。  
    Enable WebDAV and create WebDAV credentials.
-3. PikPak 会显示服务器地址、WebDAV 用户名和 WebDAV 密码。请不要把这些凭证分享给别人。  
-   PikPak will show the server URL, WebDAV username, and WebDAV password. Keep them private.
-4. 在 PikPak Cloud 来源设置里填入这些信息，再填写漫画根目录。  
-   Enter those values in PikPak Cloud source settings, then set your manga root folder.
+3. 在 PikPak Cloud 来源设置里填写 WebDAV 地址、用户名、密码和漫画根目录。  
+   Enter the WebDAV URL, username, password, and manga root folder in PikPak Cloud settings.
 
-PikPak 官方目前说明 WebDAV 面向 Premium 用户。  
-PikPak currently documents WebDAV as a Premium feature.
+## 漫画根目录 / Manga Root Folder
 
-## 四个设置项 / The four settings
+推荐创建 `/漫画/`，然后把下载来的漫画直接丢进去。  
+We recommend creating `/漫画/` and dropping downloaded manga into it directly.
+
+v0.11 会自动识别这些常见结构：
+
+```
+/漫画/
+  火之鸟.zip
+  龙珠.cbz
+
+  阿基拉/
+    001.jpg
+    002.jpg
+
+  剑风传奇/
+    Vol.01/
+      001.jpg
+      002.jpg
+    Vol.02/
+      001.jpg
+      002.jpg
+
+  灌篮高手/
+    Vol.01.cbz
+    Vol.02.zip
+```
+
+- 根目录里的 ZIP/CBZ = 一本漫画
+- 根目录里的文件夹 = 一本漫画
+- 漫画文件夹里直接放图片 = 自动作为一个章节
+- 漫画文件夹里的 Vol.xx / Chapter xx 等子目录 = 自动作为章节
+- 漫画文件夹里多个 ZIP/CBZ = 自动作为卷/章节
+- ZIP/CBZ 内多层目录会自动扫描，公共包装目录会尽量折叠
+- 文件名使用自然数字排序，例如 1, 2, 3, 10，而不是 1, 10, 2
+- 自动忽略 __MACOSX、.DS_Store、Thumbs.db、desktop.ini 等常见垃圾文件
+- 如果漫画根目录有 1-3 张封面图，同时还有真实章节目录，会尽量把这些封面图忽略为章节
+
+English:
+
+- ZIP/CBZ directly under the manga root = one manga
+- A folder directly under the manga root = one manga
+- Images directly inside a manga folder = one chapter
+- Vol.xx / Chapter xx subfolders = chapters automatically
+- Multiple ZIP/CBZ files inside a manga folder = volumes/chapters automatically
+- Nested ZIP/CBZ folders are scanned and common wrapper folders are collapsed when possible
+- Natural numeric sorting is used: 1, 2, 3, 10 instead of 1, 10, 2
+- Common junk files/folders such as __MACOSX, .DS_Store, Thumbs.db and desktop.ini are ignored
+
+## 支持格式 / Supported formats
+
+Archives: ZIP, CBZ
+
+Images: JPG, JPEG, PNG, WEBP, GIF, AVIF, JXL
+
+RAR/CBR, 7Z, PDF and EPUB are not handled by this version. The extension does not silently download an entire unsupported archive.
+
+## WebDAV 设置 / WebDAV settings
 
 **WebDAV 地址 / WebDAV URL**  
 通常保持默认 `https://dav.pikpak.ai/`。  
@@ -44,28 +97,14 @@ Use the username shown on the PikPak WebDAV page, not your login email or phone 
 Use the WebDAV-generated password, not your PikPak account password.
 
 **漫画根目录 / Manga Root Folder**  
-这是 PikPak 里存放漫画 ZIP/CBZ 的文件夹路径，例如 `/漫画/`。  
-This is the PikPak folder containing your manga ZIP/CBZ files, for example `/漫画/`.
+例如 `/漫画/`。填写 `/` 表示直接使用 PikPak 根目录。  
+Example: `/漫画/`. Use `/` to use the PikPak root itself.
 
-插件只列出这个目录第一层的 ZIP/CBZ，每个压缩包作为一本漫画。填 `/` 可以扫描 PikPak 根目录第一层。  
-The extension lists ZIP/CBZ files directly inside this folder. Each archive becomes one manga. Use `/` to scan the first level of the PikPak root.
+## Remote reading
 
-## 压缩包结构 / Archive structure
+ZIP/CBZ pages are read remotely with HTTP Range access, so the whole archive does not need to be downloaded before reading.
 
-Example:
-
-```
-/漫画/
-  火之鸟.zip
-    火之鸟/
-      Vol.01/
-        001.jpg
-        002.jpg
-      Vol.02/
-        001.jpg
-```
-
-ZIP/CBZ pages are read remotely with HTTP Range access. The whole archive does not need to be downloaded before reading.
+Normal image folders are fetched one image at a time through WebDAV.
 
 ## 更新 / Updating
 
