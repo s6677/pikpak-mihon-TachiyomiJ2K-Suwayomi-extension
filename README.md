@@ -72,6 +72,10 @@ Both installation methods provide the same PikPak Cloud extension.
 ### PikPak Cloud Settings
 
 After installing the extension, open the **PikPak Cloud source settings**.
+<img width="3173" height="389" alt="image" src="https://github.com/user-attachments/assets/60e4e044-7182-4ad2-805e-26546e0e384f" />
+<img width="3407" height="341" alt="image" src="https://github.com/user-attachments/assets/3c9ced17-1ae9-4094-a6bb-1120d14b9e1b" />
+
+
 
 #### WebDAV URL
 
