@@ -600,6 +600,12 @@ abstract class PikPakCloud :
 
         rawClient.newCall(request).execute().use { response ->
             if (!response.isSuccessful) {
+                if (response.code == 404 && normalizedDir == rootPath) {
+                    throw IOException(
+                        "找不到漫画根目录：$normalizedDir。请确认 PikPak 中存在这个路径，并确保扩展里的“漫画根目录”与 PikPak 中的实际路径一致。 / " +
+                            "Manga root folder not found: $normalizedDir. Make sure this path exists in PikPak and that the Manga Root Folder setting matches the actual PikPak folder path.",
+                    )
+                }
                 throw IOException("WebDAV 连接失败 / WebDAV request failed: HTTP ${response.code}")
             }
 
@@ -728,8 +734,8 @@ abstract class PikPakCloud :
             key = PREF_ROOT
             title = "漫画根目录 / Manga Root Folder"
             summary = """
-                中文：这是 PikPak 中专门放漫画的文件夹，默认 /Comics/。请先在 PikPak 中自行创建 Comics 文件夹，再把 ZIP、CBZ 或漫画文件夹直接放进去。也可以改成 /漫画/、/Manga/ 或其他路径。填写 / 表示使用 PikPak 根目录。
-                English: This is the PikPak folder used as your comic/manga library. Default: /Comics/. Create the Comics folder in PikPak first, then put ZIP, CBZ, or manga folders inside it. You may change this to /Manga/, /漫画/, or any other path. Use / for the PikPak root.
+                中文：默认 /Comics/。你可以使用 PikPak 中任何已有文件夹作为漫画根目录。请确保这里填写的路径与 PikPak 中的实际文件夹路径一致。填写 / 表示直接使用 PikPak 根目录。
+                English: Default: /Comics/. You may use any existing PikPak folder as your comic/manga root. Make sure this setting matches the actual folder path in PikPak. Use / to read directly from the PikPak root.
             """.trimIndent()
             setDefaultValue(DEFAULT_ROOT)
         }
