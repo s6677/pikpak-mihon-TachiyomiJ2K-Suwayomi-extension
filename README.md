@@ -1,5 +1,33 @@
 # PikPak Cloud for Mihon / TachiyomiJ2K / Suwayomi
 
+<!-- EASY-INSTALL-START -->
+## 🚀 安装 / Install
+
+### 方法一：添加扩展仓库网址 / Option 1: Extension Store URL
+
+把下面这个网址添加到 Mihon、TachiyomiJ2K 或兼容版本的 Suwayomi：
+
+Add this URL to Mihon, TachiyomiJ2K, or a compatible Suwayomi Extension Store:
+
+```text
+https://raw.githubusercontent.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/main/index.pb
+```
+
+### 方法二：直接下载 / Option 2: Manual Download
+
+**Android · Mihon / TachiyomiJ2K**
+
+[⬇️ 下载 PikPak-Cloud.apk / Download APK](https://github.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/releases/latest/download/PikPak-Cloud.apk)
+
+**PC · Suwayomi**
+
+[⬇️ 下载 PikPak-Cloud.jar / Download JAR](https://github.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/releases/latest/download/PikPak-Cloud.jar)
+
+两种方式功能相同，用户自己选择即可。  
+Both installation methods provide the same extension. Choose whichever you prefer.
+
+<!-- EASY-INSTALL-END -->
+
 把你自己的 PikPak 云盘变成 Mihon / TachiyomiJ2K / Suwayomi 的私人漫画源。  
 Turn your own PikPak storage into a private manga source for Mihon, TachiyomiJ2K, and Suwayomi.
 
