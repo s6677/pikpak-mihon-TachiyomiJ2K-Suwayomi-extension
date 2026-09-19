@@ -728,8 +728,8 @@ abstract class PikPakCloud :
             key = PREF_ROOT
             title = "漫画根目录 / Manga Root Folder"
             summary = """
-                中文：这是 PikPak 中专门放漫画的文件夹，例如 /漫画/。把 ZIP、CBZ 或漫画文件夹直接丢进这里即可。漫画文件夹里可以直接放图片，也可以按 Vol.01、Chapter 01 等继续分子目录，或放多个 ZIP/CBZ；插件会自动识别。填写 / 表示使用 PikPak 根目录。
-                English: This is the PikPak folder used as your manga library, for example /漫画/. Put ZIP, CBZ, or manga folders directly here. A manga folder may contain images, Vol.01/Chapter 01 subfolders, or multiple ZIP/CBZ files; the extension detects the structure automatically. Use / for the PikPak root.
+                中文：这是 PikPak 中专门放漫画的文件夹，默认 /Comics/。请先在 PikPak 中自行创建 Comics 文件夹，再把 ZIP、CBZ 或漫画文件夹直接放进去。也可以改成 /漫画/、/Manga/ 或其他路径。填写 / 表示使用 PikPak 根目录。
+                English: This is the PikPak folder used as your comic/manga library. Default: /Comics/. Create the Comics folder in PikPak first, then put ZIP, CBZ, or manga folders inside it. You may change this to /Manga/, /漫画/, or any other path. Use / for the PikPak root.
             """.trimIndent()
             setDefaultValue(DEFAULT_ROOT)
         }
@@ -990,7 +990,7 @@ abstract class PikPakCloud :
         private const val PREF_PASSWORD = "webdav_password"
         private const val PREF_ROOT = "manga_root"
         private const val DEFAULT_SERVER = "https://dav.pikpak.ai/"
-        private const val DEFAULT_ROOT = "/漫画/"
+        private const val DEFAULT_ROOT = "/Comics/"
 
         private const val PAGE_PROXY_HOST = "127.0.0.1"
         private const val PAGE_PROXY_PATH = "/pikpak-page"

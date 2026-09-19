@@ -1,7 +1,7 @@
 {
   "name": "PikPak Cloud",
   "badgeLabel": "PIKPAK",
-  "signingKey": "ec06c01fbad8d2f447d94953b9420d0094e0d17db83bedf2c981abd8f9e45195",
+  "signingKey": "7de25d9d908be4f35974e57fd75e155b9029aad764a6d62adef7949b7b9165d3",
   "contact": {
     "website": "https://github.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension"
   },
@@ -16,8 +16,8 @@
           "jarUrl": "https://raw.githubusercontent.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/main/jar/PikPak-Cloud.jar"
         },
         "extensionLib": "1.6",
-        "versionCode": "106011",
-        "versionName": "1.6.11",
+        "versionCode": "106012",
+        "versionName": "1.6.12",
         "contentWarning": "CONTENT_WARNING_SAFE",
         "sources": [
           {
