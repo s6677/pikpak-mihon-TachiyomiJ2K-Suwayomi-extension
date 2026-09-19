@@ -1,0 +1,33 @@
+{
+  "name": "PikPak Cloud",
+  "badgeLabel": "PIKPAK",
+  "signingKey": "bd4167448ec6c0e16825606a56ccf36f0743448b7753d0d3d6854c1d3dbb04e1",
+  "contact": {
+    "website": "https://github.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension"
+  },
+  "extensionList": {
+    "extensions": [
+      {
+        "name": "PikPak Cloud",
+        "packageName": "eu.kanade.tachiyomi.extension.all.pikpakcloud",
+        "resources": {
+          "apkUrl": "https://raw.githubusercontent.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/main/apk/PikPak-Cloud.apk",
+          "iconUrl": "https://raw.githubusercontent.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/main/icon/pikpakcloud.png",
+          "jarUrl": "https://raw.githubusercontent.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/main/jar/PikPak-Cloud.jar"
+        },
+        "extensionLib": "1.6",
+        "versionCode": "106010",
+        "versionName": "1.6.10",
+        "contentWarning": "CONTENT_WARNING_SAFE",
+        "sources": [
+          {
+            "id": "8281873256003650157",
+            "name": "PikPak Cloud",
+            "language": "all",
+            "homeUrl": "https://dav.pikpak.ai"
+          }
+        ]
+      }
+    ]
+  }
+}
