@@ -1,0 +1,324 @@
+name: Publish PikPak Cloud Simple
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout public repository
+        uses: actions/checkout@v4
+
+      - name: Checkout Keiyoushi build system
+        uses: actions/checkout@v4
+        with:
+          repository: keiyoushi/extensions-source
+          ref: main
+          path: keiyoushi
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Install PikPak Cloud source
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "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NDNdO6rW4YkAAACmAAAACgAAAAAAAAAAAAAApIEAAAAAUkVBRE1FLnR4dFBLAQIUAxQAAAAIANQ0M10tpcwewwAAAFEBAAAkAAAAAAAAAAAAAACkgbEAAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL2J1aWxkLmdyYWRsZS5rdHNQSwECFAMUAAAACADUNDNdrhHBmKMBAACeAQAAMwAAAAAAAAAAAAAApIG2AQAAc3JjL2FsbC9waWtwYWtjbG91ZC9yZXMvbWlwbWFwLWhkcGkvaWNfbGF1bmNoZXIucG5nUEsBAhQDFAAAAAgA1DQzXa4RwZijAQAAngEAADUAAAAAAAAAAAAAAKSBqgMAAHNyYy9hbGwvcGlrcGFrY2xvdWQvcmVzL21pcG1hcC14eGhkcGkvaWNfbGF1bmNoZXIucG5nUEsBAhQDFAAAAAgA1DQzXa4RwZijAQAAngEAADYAAAAAAAAAAAAAAKSBoAUAAHNyYy9hbGwvcGlrcGFrY2xvdWQvcmVzL21pcG1hcC14eHhoZHBpL2ljX2xhdW5jaGVyLnBuZ1BLAQIUAxQAAAAIANQ0M12uEcGYowEAAJ4BAAA0AAAAAAAAAAAAAACkgZcHAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL3Jlcy9taXBtYXAteGhkcGkvaWNfbGF1bmNoZXIucG5nUEsBAhQDFAAAAAgA1DQzXa4RwZijAQAAngEAADMAAAAAAAAAAAAAAKSBjAkAAHNyYy9hbGwvcGlrcGFrY2xvdWQvcmVzL21pcG1hcC1tZHBpL2ljX2xhdW5jaGVyLnBuZ1BLAQIUAxQAAAAIANQ0M11ToGgoKRcAAGpSAABUAAAAAAAAAAAAAACkgYALAABzcmMvYWxsL3Bpa3Bha2Nsb3VkL3NyYy9ldS9rYW5hZGUvdGFjaGl5b21pL2V4dGVuc2lvbi9hbGwvcGlrcGFrY2xvdWQvUGlrUGFrQ2xvdWQua3RQSwUGAAAAAAgACAD3AgAAGyMAAAAA" | base64 -d > /tmp/pikpak-source.zip
+          rm -rf /tmp/pikpak-source
+          mkdir -p /tmp/pikpak-source
+          unzip -q /tmp/pikpak-source.zip -d /tmp/pikpak-source
+
+          rm -rf keiyoushi/src/all/pikpakcloud
+          cp -R /tmp/pikpak-source/src/all/pikpakcloud keiyoushi/src/all/pikpakcloud
+
+          mkdir -p src/all
+          rm -rf src/all/pikpakcloud
+          cp -R /tmp/pikpak-source/src/all/pikpakcloud src/all/pikpakcloud
+
+      - name: Format source
+        working-directory: keiyoushi
+        shell: bash
+        run: |
+          chmod +x gradlew
+          ./gradlew src:all:pikpakcloud:spotlessApply
+
+      - name: Copy formatted source back
+        shell: bash
+        run: |
+          rm -rf src/all/pikpakcloud
+          cp -R keiyoushi/src/all/pikpakcloud src/all/pikpakcloud
+
+      - name: Build APK and Suwayomi JAR
+        working-directory: keiyoushi
+        shell: bash
+        run: |
+          set +e
+          ./gradlew src:all:pikpakcloud:assembleDebug --stacktrace 2>&1 | tee /tmp/pikpak-build.log
+          status=${PIPESTATUS[0]}
+          if [ "$status" -ne 0 ]; then
+            echo
+            echo "================ SHORT ERROR SUMMARY ================"
+            grep -En "(^e: |error: |Unresolved reference|Cannot access|Suspend function|Type mismatch|No value passed|overrides nothing|None of the following|Too many arguments|Not enough information|Compilation error)" /tmp/pikpak-build.log | head -n 120 || true
+            echo "====================================================="
+            exit "$status"
+          fi
+
+      - name: Collect APK and JAR
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          APK="$(find keiyoushi/src/all/pikpakcloud/build/outputs/apk -type f -name '*.apk' -print -quit)"
+          JAR="$(find keiyoushi/src/all/pikpakcloud/build/outputs/jar -type f -name '*.jar' -print -quit)"
+          INFO="keiyoushi/src/all/pikpakcloud/build/keiyoushi-source-info.json"
+
+          echo "APK: $APK"
+          echo "JAR: $JAR"
+
+          test -n "$APK"
+          test -n "$JAR"
+          test -f "$INFO"
+
+          rm -rf apk jar icon
+          mkdir -p apk jar icon
+
+          cp "$APK" apk/PikPak-Cloud.apk
+          cp "$JAR" jar/PikPak-Cloud.jar
+          cp src/all/pikpakcloud/res/mipmap-xhdpi/ic_launcher.png icon/pikpakcloud.png
+          cp "$INFO" /tmp/keiyoushi-source-info.json
+
+      - name: Generate Extension Store files
+        shell: bash
+        env:
+          REPO_SLUG: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          pip install --disable-pip-version-check protobuf grpcio-tools
+
+          cat > /tmp/index.proto <<'PROTO'
+          syntax = "proto3";
+
+          message Index {
+            string name = 1;
+            string badgeLabel = 2;
+            string signingKey = 3;
+            Contact contact = 4;
+            oneof extensions {
+              ExtensionList extensionList = 101;
+              string extensionListUrl = 102;
+            }
+          }
+
+          message Contact {
+            string website = 1;
+            optional string discord = 2;
+          }
+
+          message ExtensionList {
+            repeated Extension extensions = 1;
+          }
+
+          message Extension {
+            string name = 1;
+            string packageName = 2;
+            Resources resources = 3;
+            string extensionLib = 4;
+            int64 versionCode = 5;
+            string versionName = 6;
+            ContentWarning contentWarning = 7;
+            repeated Source sources = 8;
+          }
+
+          message Resources {
+            string apkUrl = 1;
+            string iconUrl = 2;
+            string jarUrl = 501;
+          }
+
+          message Source {
+            int64 id = 1;
+            string name = 2;
+            string language = 3;
+            string homeUrl = 4;
+            repeated string mirrorUrls = 5;
+            optional string message = 7;
+          }
+
+          enum ContentWarning {
+            CONTENT_WARNING_UNSPECIFIED = 0;
+            CONTENT_WARNING_SAFE = 1;
+            CONTENT_WARNING_MIXED = 2;
+            CONTENT_WARNING_NSFW = 3;
+          }
+          PROTO
+
+          python -m grpc_tools.protoc --proto_path=/tmp --python_out=/tmp /tmp/index.proto
+
+          python <<'PY'
+          import gzip
+          import json
+          import os
+          import sys
+          from pathlib import Path
+
+          sys.path.insert(0, "/tmp")
+          import index_pb2
+          from google.protobuf import json_format
+
+          repo = os.environ["REPO_SLUG"]
+          info = json.loads(Path("/tmp/keiyoushi-source-info.json").read_text(encoding="utf-8"))
+          base = f"https://raw.githubusercontent.com/{repo}/main"
+
+          cw = info.get("contentWarning", 1)
+          if isinstance(cw, str):
+              cw = {
+                  "SAFE": 1,
+                  "MIXED": 2,
+                  "NSFW": 3,
+                  "CONTENT_WARNING_SAFE": 1,
+                  "CONTENT_WARNING_MIXED": 2,
+                  "CONTENT_WARNING_NSFW": 3,
+              }.get(cw.upper(), 1)
+
+          ext = index_pb2.Extension(
+              name=info["name"],
+              packageName=info["packageName"],
+              resources=index_pb2.Resources(
+                  apkUrl=f"{base}/apk/PikPak-Cloud.apk",
+                  iconUrl=f"{base}/icon/pikpakcloud.png",
+                  jarUrl=f"{base}/jar/PikPak-Cloud.jar",
+              ),
+              extensionLib=info["extensionLib"],
+              versionCode=int(info["versionCode"]),
+              versionName=info["versionName"],
+              contentWarning=int(cw),
+              sources=[
+                  index_pb2.Source(
+                      id=int(source["id"]),
+                      name=source["name"],
+                      language=source["lang"],
+                      homeUrl=source["baseUrl"],
+                      mirrorUrls=source.get("mirrorUrls", []),
+                  )
+                  for source in info["sources"]
+              ],
+          )
+
+          index = index_pb2.Index(
+              name="PikPak Cloud",
+              badgeLabel="PIKPAK",
+              signingKey="",
+              contact=index_pb2.Contact(
+                  website=f"https://github.com/{repo}",
+              ),
+              extensionList=index_pb2.ExtensionList(extensions=[ext]),
+          )
+
+          Path("index.pb").write_bytes(
+              gzip.compress(index.SerializeToString(deterministic=True), mtime=0)
+          )
+          Path("index.json").write_text(
+              json_format.MessageToJson(index, preserving_proto_field_name=True),
+              encoding="utf-8",
+          )
+          Path("repo.json").write_text(
+              json.dumps(
+                  {
+                      "index_v2": f"{base}/index.pb",
+                      "meta": {
+                          "name": "PikPak Cloud",
+                          "website": f"https://github.com/{repo}",
+                      },
+                  },
+                  ensure_ascii=False,
+                  indent=2,
+              ) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Write README
+        shell: bash
+        env:
+          REPO_SLUG: ${{ github.repository }}
+        run: |
+          cat > README.md <<EOF
+          # PikPak Cloud for Mihon / TachiyomiJ2K / Suwayomi
+
+          Use your own PikPak WebDAV storage as a private manga source.
+
+          This project does not provide manga or shared PikPak accounts.
+          Every user uses their own PikPak WebDAV credentials.
+
+          ## Extension Store URL
+
+          \`\`\`
+          https://raw.githubusercontent.com/$REPO_SLUG/main/index.pb
+          \`\`\`
+
+          Add this URL to Mihon / TachiyomiJ2K / compatible Suwayomi Extension Stores.
+
+          ## Features
+
+          - PikPak WebDAV
+          - Remote ZIP / CBZ
+          - HTTP Range page reading
+          - No need to download the entire archive before reading
+          - Android APK for Mihon / TachiyomiJ2K
+          - JAR for Suwayomi
+
+          ## Defaults
+
+          WebDAV URL: \`https://dav.pikpak.ai/\`
+
+          Manga root: \`/漫画/\`
+
+          ## Updating
+
+          This repository intentionally does not maintain stable APK signing for seamless Android updates.
+          If a future build cannot replace the old extension, uninstall the old extension and install the new one.
+
+          ## Privacy
+
+          Do not share your PikPak WebDAV username or password.
+          Credentials are entered by each user in their own extension settings.
+
+          ## Disclaimer
+
+          Independent community project. Not affiliated with PikPak, Mihon, TachiyomiJ2K,
+          Suwayomi, or Keiyoushi.
+          EOF
+
+      - name: Commit generated files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md src apk jar icon index.pb index.json repo.json
+
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+
+          git commit -m "Publish PikPak Cloud"
+          git push
