@@ -100,10 +100,10 @@ This tells PikPak Cloud where your manga library is stored.
 Recommended:
 
 ```text
-/漫画/
+/comic/
 ```
 
-Create a folder named `漫画` in PikPak and place your manga inside it.
+Create a folder named `comic` in PikPak and place your manga inside it.
 
 You can also use:
 
@@ -124,7 +124,7 @@ You should not need to reorganize everything into one strict folder format.
 #### ZIP / CBZ directly inside the manga root
 
 ```text
-/漫画/
+/comic/
   Phoenix.zip
   Dragon Ball.cbz
   Akira.zip
@@ -135,7 +135,7 @@ Each ZIP / CBZ file is treated as one manga.
 #### Manga stored as an image folder
 
 ```text
-/漫画/
+/comic/
   Akira/
     001.jpg
     002.jpg
@@ -147,7 +147,7 @@ The folder is treated as one manga with one chapter.
 #### Manga with volume or chapter folders
 
 ```text
-/漫画/
+/comic/
   Berserk/
     Vol.01/
       001.jpg
@@ -162,7 +162,7 @@ The folder is treated as one manga with one chapter.
 #### Manga folder containing multiple ZIP / CBZ volumes
 
 ```text
-/漫画/
+/comic/
   Slam Dunk/
     Vol.01.cbz
     Vol.02.zip
