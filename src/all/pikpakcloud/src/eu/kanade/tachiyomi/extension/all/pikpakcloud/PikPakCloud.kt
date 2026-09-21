@@ -606,24 +606,61 @@ abstract class PikPakCloud :
                             "Manga root folder not found: $normalizedDir. Make sure this path exists in PikPak and that the Manga Root Folder setting matches the actual PikPak folder path.",
                     )
                 }
-                throw IOException("WebDAV 连接失败 / WebDAV request failed: HTTP ${response.code}")
+                throw IOException(
+                    "WebDAV 连接失败 / WebDAV request failed: HTTP ${response.code}; path=$normalizedDir; url=${webDavUrl(normalizedDir)}",
+                )
             }
 
             val parsed = parseDavXml(response.body.string())
             return parsed.mapNotNull { raw ->
-                var name = raw.displayName.trim()
+                // IMPORTANT: use the WebDAV href as the canonical child path whenever possible.
+                // PikPak may return a display name that looks correct while the real DAV path differs.
+                // Rebuilding the path as parent + displayName can then make the next PROPFIND return 404.
+                val hrefPath = davPathFromHref(raw.href, raw.isDirectory)
+
+                var name = hrefPath
+                    ?.trimEnd('/')
+                    ?.substringAfterLast('/')
+                    .orEmpty()
+                if (name.isBlank()) name = raw.displayName.trim()
                 if (name.isBlank()) {
                     name = raw.href.substringBefore('?').trimEnd('/').substringAfterLast('/')
                 }
                 name = decodePercent(name)
                 if (name.isBlank()) return@mapNotNull null
 
-                val itemPath = normalizedDir + name + if (raw.isDirectory) "/" else ""
+                val itemPath = hrefPath ?: (normalizedDir + name + if (raw.isDirectory) "/" else "")
                 if (itemPath.trimEnd('/') == normalizedDir.trimEnd('/')) return@mapNotNull null
 
                 DavItem(name, itemPath, raw.isDirectory)
             }.distinctBy { it.path }
         }
+    }
+
+    private fun davPathFromHref(href: String, isDirectory: Boolean): String? {
+        val rawHref = href.trim()
+        if (rawHref.isBlank()) return null
+
+        val base = runCatching { serverAddress.toHttpUrl() }.getOrNull() ?: return null
+        val resolved = runCatching { base.resolve(rawHref) }.getOrNull() ?: return null
+        if (resolved.host != base.host) return null
+
+        val baseSegments = base.pathSegments.filter { it.isNotBlank() }
+        val resolvedSegments = resolved.pathSegments.filter { it.isNotBlank() }
+        val relativeSegments = if (
+            baseSegments.isNotEmpty() &&
+            resolvedSegments.size >= baseSegments.size &&
+            resolvedSegments.take(baseSegments.size) == baseSegments
+        ) {
+            resolvedSegments.drop(baseSegments.size)
+        } else {
+            resolvedSegments
+        }
+
+        var path = "/" + relativeSegments.joinToString("/")
+        if (path == "/" && relativeSegments.isEmpty()) return "/"
+        if (isDirectory && !path.endsWith('/')) path += "/"
+        return path
     }
 
     private fun parseDavXml(xml: String): List<RawDavItem> {

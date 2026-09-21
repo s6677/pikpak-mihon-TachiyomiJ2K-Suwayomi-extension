@@ -1,7 +1,7 @@
 {
   "name": "PikPak Cloud",
   "badgeLabel": "PIKPAK",
-  "signingKey": "7fc54bb5befdb475450c8347148f4dd9156cd5f676408bfc342031754e777d1e",
+  "signingKey": "126096bf1e2aec76924ae65a045f5620778ab4752d6b7b44bd74cc0edd457d85",
   "contact": {
     "website": "https://github.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension"
   },
@@ -11,13 +11,13 @@
         "name": "PikPak Cloud",
         "packageName": "eu.kanade.tachiyomi.extension.all.pikpakcloud",
         "resources": {
-          "apkUrl": "https://github.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/releases/download/v0.106014/PikPak-Cloud.apk",
+          "apkUrl": "https://github.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/releases/download/v0.106015/PikPak-Cloud.apk",
           "iconUrl": "https://raw.githubusercontent.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/main/icon/pikpakcloud.png",
-          "jarUrl": "https://github.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/releases/download/v0.106014/PikPak-Cloud.jar"
+          "jarUrl": "https://github.com/s6677/pikpak-mihon-TachiyomiJ2K-Suwayomi-extension/releases/download/v0.106015/PikPak-Cloud.jar"
         },
         "extensionLib": "1.6",
-        "versionCode": "106014",
-        "versionName": "1.6.14",
+        "versionCode": "106015",
+        "versionName": "1.6.15",
         "contentWarning": "CONTENT_WARNING_SAFE",
         "sources": [
           {
