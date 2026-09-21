@@ -6,7 +6,7 @@ plugins {
 
 keiyoushi {
     name = "PikPak Cloud"
-    versionCode = 13
+    versionCode = 14
     contentWarning = ContentWarning.SAFE
     libVersion = "1.6"
 

@@ -638,12 +638,14 @@ abstract class PikPakCloud :
             val response = responses.item(index) as? Element ?: continue
             val href = firstElementText(response, "href")
             val displayName = firstElementText(response, "displayname")
-            val resourceType = response.getElementsByTagNameNS("*", "resourcetype").item(0) as? Element
-            val isDirectory = resourceType
-                ?.getElementsByTagNameNS("*", "collection")
-                ?.length
-                ?.let { it > 0 }
-                ?: false
+            // PikPak WebDAV does not always expose folders with the same XML shape.
+            // Accept both the DAV <collection/> marker and the standard trailing slash in href.
+            // This keeps normal ZIP/CBZ handling untouched while making plain image folders reliable.
+            val hasCollectionMarker = response
+                .getElementsByTagNameNS("*", "collection")
+                .length > 0
+            val hrefPath = href.substringBefore('?').substringBefore('#').trim()
+            val isDirectory = hasCollectionMarker || hrefPath.endsWith("/")
 
             result += RawDavItem(
                 href = href,
